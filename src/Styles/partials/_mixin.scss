@@ -1,0 +1,15 @@
+//LE MIXIN sono delle funzioni o pacchetti di codice che posso andare ad utilizzare da qualsiasi punto del nostro progetto
+//passiamo come parametro una variabile con key:value
+@mixin center ($type: 'both'){
+  display: flex;
+
+  @if $type == 'vertical'{
+    align-items: center;
+  } @else if $type == 'horizontal' {
+    justify-content: center;
+  } @else {
+    justify-content: center;
+    align-items: center;
+  }
+  
+}

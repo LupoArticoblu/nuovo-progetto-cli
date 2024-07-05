@@ -48,6 +48,9 @@
 //utilizziamo @use per importare e utilizzare i nostri file scss(prima si usava import ma a differenza di import use condivide il suo codice solo in locale senza far ereditare i stili globali ad altri componenti)
 @use './Styles/partials/variabili' as *;//a _variabili.scss non serve usare _ o l'estensione mentre lo si richiama
 
+//qui oltre alle variabili e general, importo le mixin
+@use './Styles/partials/mixin' as *;
+
 @use './Styles/general' as *;
 
 /* ma la vera rivoluzione di sass la fanno le variabili! */
@@ -58,6 +61,9 @@
     min-height: 100vh;
   }
   .container{
+    //inserisco la mixin con include
+    @include center();
+    height: 600px;
     //questi li uso in general.scss
     //width: 60%;
     //margin: 30px auto;
