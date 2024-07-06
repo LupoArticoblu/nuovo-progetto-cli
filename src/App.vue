@@ -63,7 +63,7 @@
   .container{
     //inserisco la mixin con include
     @include center();
-    height: 600px;
+    
     //questi li uso in general.scss
     //width: 60%;
     //margin: 30px auto;

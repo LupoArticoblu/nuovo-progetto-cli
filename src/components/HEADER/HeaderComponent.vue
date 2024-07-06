@@ -10,12 +10,38 @@ export default {
 </script>
 
 <template>
-  <h2>{{ title }}</h2>
+  <div class="container">
+  <header>
+    <ul>
+      <li><a href="#">link</a></li>
+      <li><a href="#">link</a></li>
+      <li><a href="#">link</a></li>
+      <li><a href="#">link</a></li>
+    </ul>
+  </header>
+
+  </div>
 </template>
 
-<style scoped>
-  h2{
-    color: red;
-    font-size: 2.3 rem;
+<style lang='scss' scoped>
+  @use '../../Styles/partials/mixin' as *;
+header{
+  background: #ff12f1;
+  width: 100%;
+  ul{
+    list-style: none;
+    @include center('horizontal');
+    li{
+      a{
+        display: inline-block;
+        margin: 10px;
+        text-decoration: none;
+        &:hover{
+          color: #0f23f0;
+          text-decoration: underline; 
+        }
+      }
+    }
   }
+}  
 </style>
