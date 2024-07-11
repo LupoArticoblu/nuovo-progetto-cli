@@ -5,12 +5,14 @@ import { store } from './components/data/store';
 import {code, getRandomNumber} from './components/data/data';
 //importo il js colori <- se il file da importare ha "export default" il nome attributo è arbitrario
 import color from './components/data/color';
-  import HeaderComponent from './components/HEADER/HeaderComponent.vue';
+import HeaderComponent from './components/HEADER/HeaderComponent.vue';
+import Emit from './components/HEADER/Emit.vue';
 
   export default {
     name: 'App',
     components: {
-      HeaderComponent
+      HeaderComponent,
+      Emit
     },
     //qui vanno anche i nostri vecchi amici: data, metods, mounted...
     data() {
@@ -31,6 +33,11 @@ import color from './components/data/color';
       //creiamo un metodo per inserire le immagini
       getPathImage(image) {
         return new URL(`./assets/img/${image}`, import.meta.url).href
+      },
+      //creiamo un metodo per emettere mioEvento
+      miaFunzione(saluto) {
+        console.log(saluto);
+        store.count++
       }
     }
   }
@@ -51,7 +58,8 @@ import color from './components/data/color';
       la sintassi giusta è questa, data dal metodo -->
       <img :src="getPathImage(immagine)" alt="">
     </div>
-
+    <!-- qui resta in ascolto l'evento personalizzato di emit e lo riportiamo così-->
+    <Emit @mioEvento="miaFunzione" /><!-- <- con mioEvento parte miaFunzione--> 
     <h2>{{ msg }}</h2>
 
   </div>

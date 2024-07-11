@@ -34,6 +34,8 @@ export default {
 
   </div>
   <button @click="store.count++" style="background-color: #adb210"> incrementa il contatore store esportato in App.vue</button>
+  <!-- MA COSA SUCCEDE SE VOGLIAMO EMETTRE EVENTI DA FIGLIO A PADRE? (EMIT.vue) -->
+  
 </template>
 
 <style lang='scss' scoped>
