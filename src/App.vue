@@ -38,6 +38,9 @@ import Emit from './components/HEADER/Emit.vue';
       miaFunzione(saluto) {
         console.log(saluto);
         store.count++
+      },
+      altraFunzione() {
+        console.log('altra funzione');
       }
     }
   }
@@ -59,7 +62,7 @@ import Emit from './components/HEADER/Emit.vue';
       <img :src="getPathImage(immagine)" alt="">
     </div>
     <!-- qui resta in ascolto l'evento personalizzato di emit e lo riportiamo così-->
-    <Emit @mioEvento="miaFunzione" /><!-- <- con mioEvento parte miaFunzione--> 
+    <Emit @mioEvento="miaFunzione" @altroEvento="altraFunzione" /><!-- <- con mioEvento parte miaFunzione--> 
     <h2>{{ msg }}</h2>
 
   </div>
