@@ -26,7 +26,9 @@ import Emit from './components/HEADER/Emit.vue';
         //richiamo ciò che ho importato da data js
         code,
         getRandomNumber,
-        count: 0
+        count: 0,
+        // #1 Creiamo una computed che mi restituisca solo una lista di numeri pari da un array di numeri
+        numeri: [1,2,3,4,5,6,7,8,9,10],
       }
     },
     methods: {
@@ -42,8 +44,14 @@ import Emit from './components/HEADER/Emit.vue';
       altraFunzione() {
         console.log('altra funzione');
       }
-    }
+    },
+    computed: {
+      // #2 Creiamo una computed che mi restituisca solo una lista di numeri pari da un array di numeri
+      numeriPari() {
+        return this.numeri.filter(num => num % 2 === 0)
+      }
   }
+}  
 </script>
 
 <template>
@@ -74,7 +82,12 @@ import Emit from './components/HEADER/Emit.vue';
   <div class="container">
       <p>contatore: {{ store.count }}</p>
   </div>
-  
+  <!--#3 Creiamo una computed che mi restituisca solo una lista di numeri pari da un array di numeri-->
+  <div class="container">
+    <ul>
+      <li v-for="(num, index) in numeriPari" :key="index">{{ num }}</li>
+    </ul>
+  </div>
 </template>
 
 <!-- per utilizzare la sintassi sass uso la chiave valore "lang='scss'" in style-->
